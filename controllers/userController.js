@@ -14,7 +14,7 @@ const getAllUser = async (req, res) => {
     } catch (err) {
         res.status(500).json({
             status: "Field",
-            message: error.message,
+            message: err.message,
             isSuccess: false,
             data: null,
         });

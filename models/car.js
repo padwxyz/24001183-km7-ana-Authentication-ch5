@@ -10,7 +10,15 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Car.belongsTo(models.User, {
+        foreignKey: 'createdBy',
+        as: 'createdByUser'
+      });
+
+      Car.belongsTo(models.User, {
+        foreignKey: 'lastUpdatedBy',
+        as: 'lastUpdatedByUser'
+      });
     }
   }
   Car.init({
