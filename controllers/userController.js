@@ -12,7 +12,7 @@ const getAllUser = async (req, res) => {
             data: users,
         });
     } catch (err) {
-        res.status(500).json({
+        res.status(400).json({
             status: "Field",
             message: err.message,
             isSuccess: false,
@@ -40,7 +40,7 @@ const getUserById = async (req, res) => {
             data: user,
         });
     } catch (err) {
-        res.status(500).json({
+        res.status(400).json({
             status: "Field",
             message: err.message,
             isSuccess: false,
@@ -76,7 +76,7 @@ const createUser = async (req, res) => {
             data: newUser,
         });
     } catch (err) {
-        res.status(500).json({
+        res.status(400).json({
             status: "Field",
             message: err.message,
             isSuccess: false,
@@ -117,7 +117,7 @@ const updateUser = async (req, res) => {
             },
         });
     } catch (err) {
-        res.status(500).json({
+        res.status(400).json({
             status: "Field",
             message: err.message,
             isSuccess: false,
@@ -146,10 +146,12 @@ const deleteUser = async (req, res) => {
             status: "Success",
             message: "User data deleted successfully!",
             isSuccess: true,
-            data: null,
+            data: {
+                User
+            }
         });
     } catch (err) {
-        res.status(500).json({
+        res.status(400).json({
             status: "Field",
             message: err.message,
             isSuccess: false,

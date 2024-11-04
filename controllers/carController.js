@@ -12,7 +12,7 @@ const getAllCar = async (req, res) => {
             data: cars,
         });
     } catch (err) {
-        res.status(500).json({
+        res.status(400).json({
             status: "Field",
             message: err.message,
             isSuccess: false,
@@ -40,7 +40,7 @@ const getCarById = async (req, res) => {
             data: car,
         });
     } catch (err) {
-        res.status(500).json({
+        res.status(400).json({
             status: "Field",
             message: err.message,
             isSuccess: false,
@@ -74,10 +74,10 @@ const createCar = async (req, res) => {
             status: "Success",
             message: "",
             isSuccess: true,
-            data: {}
+            data: newCar,
         });
     } catch (err) {
-        res.status(500).json({
+        res.status(400).json({
             status: "Field",
             message: err.message,
             isSuccess: false,
@@ -114,10 +114,12 @@ const updateCar = async (req, res) => {
             status: "Success",
             message: "Car data updated seccessfully!",
             isSuccess: true,
-            data: car,
+            data: {
+                Car
+            }
         });
     } catch (err) {
-        res.status(500).json({
+        res.status(400).json({
             status: "Field",
             message: err.message,
             isSuccess: false,
@@ -146,7 +148,9 @@ const deleteCar = async (req, res, next) => {
             status: "Success",
             message: "Car data deleted successfully!",
             isSuccess: true,
-            data: null,
+            data: {
+                Car
+            }
         });
     } catch (err) {
         res.status(400).json({
